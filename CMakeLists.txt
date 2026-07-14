@@ -4,6 +4,8 @@ set(KF_VERSION "6.28.0") # handled by release scripts
 set(KF_DEP_VERSION "6.28.0") # handled by release scripts
 project(KConfigWidgets VERSION ${KF_VERSION})
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include(FeatureSummary)
 find_package(ECM 6.28.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
