@@ -45,10 +45,10 @@ void KStyleManager::initStyle()
     const auto config = KSharedConfig::openConfig();
 
     // enforce the style configured by the user, with kdeglobals fallback
-    // if not set or the style is not there, use Breeze
+    // if not set or the style is not there, use Silver
     QString styleToUse = KConfigGroup(config, QStringLiteral("KDE")).readEntry("widgetStyle", QString());
     if (styleToUse.isEmpty() || !QApplication::setStyle(styleToUse)) {
-        styleToUse = QStringLiteral("breeze");
+        styleToUse = QStringLiteral("silver");
         QApplication::setStyle(styleToUse);
     }
 }
