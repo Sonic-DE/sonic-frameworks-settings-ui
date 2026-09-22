@@ -15,8 +15,11 @@
 #include <QMenu>
 #include <QPushButton>
 
+#include <KAcceleratorManager>
 #include <KConfig>
 #include <KConfigGroup>
+
+static constexpr char languageSortTextProperty[] = "_k_languageButton_sortText";
 
 static void checkInsertPos(QMenu *popup, const QString &str, int &index)
 {
@@ -31,7 +34,7 @@ static void checkInsertPos(QMenu *popup, const QString &str, int &index)
     while (a < b) {
         int w = (a + b) / 2;
         QAction *ac = actions[w];
-        int j = str.localeAwareCompare(ac->text());
+        int j = str.localeAwareCompare(ac->property(languageSortTextProperty).toString());
         if (j > 0) {
             a = w + 1;
         } else {
@@ -94,6 +97,7 @@ KLanguageButtonPrivate::KLanguageButtonPrivate(KLanguageButton *parent)
     parent->setFocusPolicy(button->focusPolicy());
 
     button->setMenu(popup);
+    KAcceleratorManager::manage(popup);
 
     QObject::connect(popup, &QMenu::triggered, parent, &KLanguageButton::slotTriggered);
     QObject::connect(popup, &QMenu::hovered, parent, &KLanguageButton::slotHovered);
@@ -157,6 +161,9 @@ void KLanguageButton::insertLanguage(const QString &languageCode, const QString 
 
     checkInsertPos(d->popup, text, index);
     QAction *a = new QAction(QIcon(), text, this);
+    // Accelerator management can change the displayed text when the menu opens.
+    // Keep the original label as the sort key for subsequent insertions.
+    a->setProperty(languageSortTextProperty, text);
     a->setData(languageCode);
     if (index >= 0 && index < d->popup->actions().count() - 1) {
         d->popup->insertAction(d->popup->actions()[index], a);
