@@ -15,6 +15,7 @@
 #include <QMenu>
 #include <QPushButton>
 
+#include <KAcceleratorManager>
 #include <KConfig>
 #include <KConfigGroup>
 
@@ -94,6 +95,7 @@ KLanguageButtonPrivate::KLanguageButtonPrivate(KLanguageButton *parent)
     parent->setFocusPolicy(button->focusPolicy());
 
     button->setMenu(popup);
+    KAcceleratorManager::manage(popup);
 
     QObject::connect(popup, &QMenu::triggered, parent, &KLanguageButton::slotTriggered);
     QObject::connect(popup, &QMenu::hovered, parent, &KLanguageButton::slotHovered);
