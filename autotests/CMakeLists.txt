@@ -44,6 +44,7 @@ foreach(lang ${lang_entries})
 endforeach()
 
 ecm_add_test(klanguagenametest.cpp LINK_LIBRARIES Qt6::Test KF6::ConfigWidgets)
+ecm_add_test(klanguagebutton_unittest.cpp LINK_LIBRARIES Qt6::Test KF6::ConfigWidgets)
 ecm_add_test(kcmdbartest.cpp LINK_LIBRARIES Qt6::Test KF6::ConfigWidgets)
 ecm_add_test(khamburgermenutest.cpp LINK_LIBRARIES Qt6::Test KF6::ConfigWidgets)
 
