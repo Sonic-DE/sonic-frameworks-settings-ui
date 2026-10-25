@@ -229,7 +229,10 @@ void KRecentFilesAction::addUrl(const QUrl &url, const QString &name, const QStr
     const QString title = titleWithSensibleWidth(tmpName, KShell::tildeCollapse(file));
 
 #if HAVE_QTDBUS
-    static bool isKdeSession = qgetenv("XDG_CURRENT_DESKTOP") == "KDE";
+    static const bool isKdeSession = [] {
+        const auto desktops = qgetenv("XDG_CURRENT_DESKTOP").split(':');
+        return desktops.contains("SonicDE") || desktops.contains("KDE");
+    }();
     if (isKdeSession) {
         const QDBusConnection bus = QDBusConnection::sessionBus();
         if (bus.isConnected()
