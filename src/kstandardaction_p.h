@@ -130,7 +130,7 @@ static const KStandardActionInfo g_rgActionInfo[] = {
     { ReportBug,     KStandardShortcut::ReportBug, u"help_report_bug", kli18n("&Report Bug…"), {}, u"tools-report-bug" },
     { SwitchApplicationLanguage, KStandardShortcut::SwitchApplicationLanguage, u"switch_application_language", kli18n("Configure &Language…"), {}, u"preferences-desktop-locale" },
     { AboutApp,      KStandardShortcut::AccelNone, u"help_about_app", kli18n("&About %1"), {}, nullptr },
-    { AboutKDE,      KStandardShortcut::AccelNone, u"help_about_kde", kli18n("About &KDE"), {}, u"kde" },
+    { AboutKDE,      KStandardShortcut::AccelNone, u"help_about_kde", kli18n("About &SonicDE"), {}, u"kde" },
     { DeleteFile,    KStandardShortcut::DeleteFile, u"deletefile", kli18n("&Delete"), {}, u"edit-delete" },
     { RenameFile,    KStandardShortcut::RenameFile, u"renamefile", kli18n("&Rename…"), {}, u"edit-rename" },
     { MoveToTrash,   KStandardShortcut::MoveToTrash, u"movetotrash", kli18n("&Move to Trash"), {}, u"trash-empty" },
