@@ -259,6 +259,12 @@ QAction *_k_createInternal(StandardAction id, QObject *parent)
             icon = qApp->windowIcon();
             break;
         }
+        // Bundled, so icon themes without a SonicDE icon don't show another logo.
+        case AboutKDE: {
+            pAction = new QAction(parent);
+            icon = QIcon(QStringLiteral(":/kconfigwidgets/sonicde.svg"));
+            break;
+        }
         case HamburgerMenu: {
             pAction = new KHamburgerMenu(parent);
             break;
