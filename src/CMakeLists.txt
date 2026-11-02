@@ -42,6 +42,8 @@ target_sources(KF6ConfigWidgets PRIVATE
   kstylemanager.h
 )
 
+qt_add_resources(KF6ConfigWidgets "kconfigwidgets-images" PREFIX "/kconfigwidgets" FILES sonicde.svg)
+
 ecm_qt_declare_logging_category(KF6ConfigWidgets
     HEADER kconfigwidgets_debug.h
     IDENTIFIER KCONFIG_WIDGETS_LOG
