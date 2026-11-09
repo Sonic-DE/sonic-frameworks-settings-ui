@@ -2,9 +2,10 @@
 
 Sonic Frameworks Settings UI provides the building blocks for settings dialogs, color schemes and recent-file menus in SonicDE apps.
 
-## Unreleased
+## 6.31.0.1 (2026-11-10)
 
 - Files you open in apps now show up in SonicDE's recent documents and activity history.
+- The "About KDE" action in apps is now "About SonicDE", with the SonicDE icon.
 
 ## 6.31.0 (2026-10-20)
 
